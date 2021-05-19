@@ -1,15 +1,18 @@
+import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 import GlobalStyles from './components/GlobalStyles';
+import Routes from './routes';
 
-import theme from './theme';
+function Bar() {
+  return <h2>Bar</h2>;
+}
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <>
-        <GlobalStyles />
-        <h1>Ola</h1>
-      </>
+    <ThemeProvider theme={{}}>
+      <GlobalStyles />
+      <Bar />
+      <Routes />
     </ThemeProvider>
   );
 }
