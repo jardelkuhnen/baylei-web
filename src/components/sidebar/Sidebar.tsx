@@ -5,10 +5,11 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import SidebarData from './SidebarData';
 import SubMenu from './SubMenu';
-
+import { IconContext } from 'react-icons/lib';
+import Logo from './Logo';
 
 const Nav = styled.div`
-    background: #000000c0;
+    background: #ffffff;
     height: 80px;
     display: flex;
     justify-content: flex-start;
@@ -17,7 +18,7 @@ const Nav = styled.div`
 
 const NavIcon = styled(Link)`
     margin-left: 2rem;
-    color: azure;
+    color: #9199a8;
     font-size: 2rem;
     height: 80px;
     display: flex;
@@ -26,7 +27,7 @@ const NavIcon = styled(Link)`
 `;
 
 const SidebarNav = styled.nav<SidebarProp>`
-    background: #15171c;
+    background: #ffffff;
     width: 250px;
     height: 100vh;
     display: flex;
@@ -46,28 +47,34 @@ interface SidebarProp {
     sidebar: boolean;
 }
 
+
+
 const SideBar = () => {
 
     const [sidebar, setStidebar] = useState(false);
 
     const showSidebar = () => setStidebar(!sidebar);
+
     return (
+        <IconContext.Provider value={{ color: '#9199a8' }}>
+
         <Nav>
             <NavIcon to="#">
-                <FaIcons.FaBars onClick={showSidebar} />
+                <Logo onClick={showSidebar}></Logo>
             </NavIcon>
             <SidebarNav sidebar={sidebar}>
                 <SidebarWrap>
                     <NavIcon to="#">
-                        <AiIcons.AiOutlineClose onClick={showSidebar} />
+                        <AiIcons.AiOutlineCloseCircle onClick={showSidebar}></AiIcons.AiOutlineCloseCircle>
                     </NavIcon>
                     
                     {SidebarData.map((item, index) => {
-                        return <SubMenu item={item} key={index} />      
+                        return <SubMenu onClick={showSidebar} item={item} key={index}  />      
                     })}
                 </SidebarWrap>
             </SidebarNav>
         </Nav>
+            </IconContext.Provider>
     )
 }
 

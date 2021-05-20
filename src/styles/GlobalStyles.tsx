@@ -2,10 +2,9 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    outline: 0;
-    box-sizing: border-box;
   }
   html, body, #root {
     height: 100%;
@@ -30,7 +29,7 @@ export default createGlobalStyle`
   }
   body {
     font: 16px 'Poppins', sans-serif;
-    background-color: #fafbff;
+    background-color: #eff0f3;
     color: #3C4858;
     -webkit-font-smoothing: antialiased !important;
   }
@@ -39,3 +38,4 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased !important;
   }
 `;
+

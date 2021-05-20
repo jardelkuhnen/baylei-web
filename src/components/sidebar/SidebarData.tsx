@@ -5,8 +5,8 @@ import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
 
 
-
 export const SidebarData = [
+
     {
         title: 'Category',
         path: '/category',
@@ -27,7 +27,7 @@ export const SidebarData = [
         // ]
     },
     {
-        title: 'Prodcuts',
+        title: 'Products',
         path: '/products',
         icon: <FaIcons.FaCartPlus />
     },
