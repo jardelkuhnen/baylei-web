@@ -4,7 +4,7 @@ import Container from '../styles/Container'
 const Category = () => {
     return (
         <Container>
-            <h2>Categorias</h2>    
+            <h2>Clientes</h2>    
         </Container>
     )
 }

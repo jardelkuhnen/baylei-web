@@ -10,9 +10,10 @@ const SidebarLink = styled(Link)`
     align-items: center;
     padding: 20px;
     list-style: none;
-    height: 70px;
+    height: 60px;
     text-decoration: none;
     font-size: 18px;
+    font-family: 'Roboto';
 
     &:hover {
         background: #d3d5da8f;

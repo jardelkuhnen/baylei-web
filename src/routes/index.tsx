@@ -15,10 +15,10 @@ const Routes: React.FC = () => {
       <>
           <SideBar />
           <Switch>
-            <Route path="/category">
+            <Route path="/clientes">
               <Category />
             </Route>
-            <Route path="/products">
+            <Route path="/produtos">
               <Products />
             </Route>
             <Route path="/">

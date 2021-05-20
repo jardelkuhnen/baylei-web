@@ -19,12 +19,12 @@ export default createGlobalStyle`
     }
     /* Handle */
     ::-webkit-scrollbar-thumb {
-      background: #49e287;
+      background: #e0e1e6;
       border-radius: 8px;
     }
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
-      background: #40bb72;
+      background: #243085;
     }
   }
   body {

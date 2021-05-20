@@ -1,59 +1,29 @@
 import React from 'react'
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
-import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
 
 
 export const SidebarData = [
 
     {
-        title: 'Category',
-        path: '/category',
+        title: 'Home',
+        path: '/home',
         icon: <AiIcons.AiFillHome />,
         iconClosed: <RiIcons.RiArrowDownFill />,
-        iconOpened: <RiIcons.RiArrowUpFill />,
-        // subNav: [
-        //     {
-        //         title: 'Users',
-        //         path: '/users',
-        //         icon: <IoIcons.IoIosPaper />
-        //     },
-        //     {
-        //         title: 'Revenue',
-        //         path: '/overwiew/revenue',
-        //         icon: <IoIcons.IoIosPaper />
-        //     },
-        // ]
+        iconOpened: <RiIcons.RiArrowUpFill />
     },
     {
-        title: 'Products',
-        path: '/products',
+        title: 'Clientes',
+        path: '/clientes',
         icon: <FaIcons.FaCartPlus />
     },
     {
-        title: 'Reports',
-        path: '/reports',
+        title: 'Produtos',
+        path: '/produtos',
         icon: <AiIcons.AiFillHome />,
         iconClosed: <RiIcons.RiArrowDownFill />,
         iconOpened: <RiIcons.RiArrowUpFill />,
-        subNav: [
-            {
-                title: 'Reports1',
-                path: '/reports/reports1',
-                icon: <IoIcons.IoIosPaper />
-            },
-            {
-                title: 'Reports2',
-                path: '/reports/reports2',
-                icon: <IoIcons.IoIosPaper />
-            },
-            {
-                title: 'Reports3',
-                path: '/reports/reports3',
-                icon: <IoIcons.IoIosPaper />
-            },
-        ]
     },
     
 ];
