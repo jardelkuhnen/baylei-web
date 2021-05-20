@@ -4,30 +4,33 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
+import Header from '../components/header/Header';
 
 
 function Products() {
-    return <h2>Products</h2>;
-  }
-  
-  function Bar() {
-    return <h2>Bar</h2>;
-  }
-  
-  function Home() {
-    return <h2>Home Screem</h2>;
-  }
-  
-  function Category() {
-    return <h2>Categorys</h2>;
-  }
-  
+  return <h2>Ola produto</h2>
+}
 
+function ProductsList() {
+  return <h2>Listagem de produtos</h2>;
+}
+
+function Bar() {
+  return <h2>Bar</h2>;
+}
+
+function Home() {
+  return <h2>Home Screem</h2>;
+}
+
+function Category() {
+  return <h2>Categorys</h2>;
+}
 
 const Routes: React.FC = () => {
-    return (
-        <BrowserRouter>
-        <>
+  return (
+    <BrowserRouter>
+      <>
           <Switch>
             <Route path="/category">
               <Category />
@@ -36,12 +39,12 @@ const Routes: React.FC = () => {
               <Products />
             </Route>
             <Route path="/">
-              <Home />
+              <Category />
             </Route>
           </Switch>
         </>
-      </BrowserRouter>
-    );
+    </BrowserRouter>
+  );
 }
 
 export default Routes;

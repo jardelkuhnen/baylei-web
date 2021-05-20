@@ -1,37 +1,41 @@
-import { createStyles, makeStyles } from '@material-ui/core';
+import { createGlobalStyle } from 'styled-components';
 
-const useStyles = makeStyles(() => createStyles({
-  '@global': {
-    '*': {
-      boxSizing: 'border-box',
-      margin: 0,
-      padding: 0,
-    },
-    html: {
-      '-webkit-font-smoothing': 'antialiased',
-      '-moz-osx-font-smoothing': 'grayscale',
-      height: '100%',
-      width: '100%'
-    },
-    body: {
-      backgroundColor: '#ffffff',
-      height: '100%',
-      width: '100%'
-    },
-    a: {
-      textDecoration: 'none'
-    },
-    '#root': {
-      height: '100%',
-      width: '100%'
+export default createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+  }
+  html, body, #root {
+    height: 100%;
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #141729;
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #49e287;
+      border-radius: 8px;
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #40bb72;
     }
   }
-}));
-
-const GlobalStyles = () => {
-  useStyles();
-
-  return null;
-};
-
-export default GlobalStyles;
+  body {
+    font: 16px 'Poppins', sans-serif;
+    background-color: #fafbff;
+    color: #3C4858;
+    -webkit-font-smoothing: antialiased !important;
+  }
+  button {
+    font: 16px 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased !important;
+  }
+`;

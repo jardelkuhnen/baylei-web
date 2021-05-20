@@ -1,19 +1,22 @@
 import React from 'react';
-import { ThemeProvider } from '@material-ui/core/styles';
 import GlobalStyles from './components/GlobalStyles';
 import Routes from './routes';
 
-function Bar() {
-  return <h2>Bar</h2>;
-}
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom';
+import SideBar from './components/Sidebar';
+
 
 function App() {
   return (
-    <ThemeProvider theme={{}}>
+    <Router>
       <GlobalStyles />
-      <Bar />
-      <Routes />
-    </ThemeProvider>
+      <SideBar />
+      {/* <Routes /> */}
+    </Router>
   );
 }
 
