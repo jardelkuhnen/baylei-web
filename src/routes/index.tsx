@@ -5,8 +5,9 @@ import {
   Switch
 } from 'react-router-dom';
 import SideBar from '../components/sidebar/Sidebar';
-import Category from '../pages/Category';
-import Products from '../pages/Products';
+import { Category } from '../pages/Category';
+import { MenuInitial } from '../pages/MenuInitial';
+import { Products } from '../pages/Products';
 
 
 const Routes: React.FC = () => {
@@ -22,7 +23,7 @@ const Routes: React.FC = () => {
               <Products />
             </Route>
             <Route path="/">
-              <Category />
+              <MenuInitial />
             </Route>
           </Switch>
         </>

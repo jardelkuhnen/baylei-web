@@ -1,7 +1,7 @@
 import React from 'react'
 import Container from '../styles/Container'
 
-const Category = () => {
+export function Category() {
     return (
         <Container>
             <h2>Clientes</h2>    
@@ -9,4 +9,3 @@ const Category = () => {
     )
 }
 
-export default Category

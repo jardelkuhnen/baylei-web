@@ -23,6 +23,7 @@ const NavIcon = styled(Link)`
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    text-decoration: none;
 `;
 
 const SidebarNav = styled.nav<SidebarProp>`
@@ -46,13 +47,13 @@ interface SidebarProp {
     sidebar: boolean;
 }
 
-
-
 const SideBar = () => {
 
     const [sidebar, setStidebar] = useState(false);
 
-    const showSidebar = () => setStidebar(!sidebar);
+    const showSidebar = () => {
+        setStidebar(!sidebar)
+    };
 
     return (
         <IconContext.Provider value={{ color: '#9199a8' }}>
@@ -62,13 +63,13 @@ const SideBar = () => {
                 <Logo onClick={showSidebar}></Logo>
             </NavIcon>
             <SidebarNav sidebar={sidebar}>
-                <SidebarWrap>
+                <SidebarWrap onClick={showSidebar}>
                     <NavIcon to="#">
                         <AiIcons.AiOutlineCloseCircle onClick={showSidebar}></AiIcons.AiOutlineCloseCircle>
                     </NavIcon>
                     
                     {SidebarData.map((item, index) => {
-                        return <SubMenu onClick={showSidebar} item={item} key={index}  />      
+                        return <SubMenu item={item} key={index}  />      
                     })}
                 </SidebarWrap>
             </SidebarNav>
