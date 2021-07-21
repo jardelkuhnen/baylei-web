@@ -10,7 +10,7 @@ import Logo from './Logo';
 const Nav = styled.div`
     background: #ffffff;
     height: 80px;
-    display: flex;
+    display: inline;
     justify-content: flex-start;
     align-items: center;
 `;
@@ -19,7 +19,7 @@ const NavIcon = styled(Link)`
     margin-left: 2rem;
     color: #9199a8;
     font-size: 2rem;
-    height: 80px;
+    height: 100px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -28,7 +28,8 @@ const NavIcon = styled(Link)`
 
 const SidebarNav = styled.nav<SidebarProp>`
     background: #ffffff;
-    width: 250px;
+    border-radius: 50px;
+    width: 400px;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -41,7 +42,22 @@ const SidebarNav = styled.nav<SidebarProp>`
 
 const SidebarWrap = styled.div`
     width: 100%;
+    padding-top: 150px;
 `;
+
+const Aside = styled.aside`
+    flex: 0.5;
+    
+    background: #162694;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 80px;   
+`;
+
 
 interface SidebarProp {
     sidebar: boolean;
@@ -56,25 +72,32 @@ const SideBar = () => {
     };
 
     return (
-        <IconContext.Provider value={{ color: '#9199a8' }}>
+        <div>
+            <IconContext.Provider value={{ color: '#9199a8' }}>
+                <div>
 
-        <Nav>
-            <NavIcon to="#">
-                <Logo onClick={showSidebar}></Logo>
-            </NavIcon>
-            <SidebarNav sidebar={sidebar}>
-                <SidebarWrap onClick={showSidebar}>
-                    <NavIcon to="#">
-                        <AiIcons.AiOutlineCloseCircle onClick={showSidebar}></AiIcons.AiOutlineCloseCircle>
-                    </NavIcon>
-                    
-                    {SidebarData.map((item, index) => {
-                        return <SubMenu item={item} key={index}  />      
-                    })}
-                </SidebarWrap>
-            </SidebarNav>
-        </Nav>
+                    <Nav>
+                        <NavIcon to="#">
+                            <Logo onClick={showSidebar}></Logo>
+                        </NavIcon>
+                        
+                        <SidebarNav sidebar={true}>
+                            <Aside></Aside>
+                            <SidebarWrap onClick={showSidebar}>
+                                {/* <NavIcon to="#">
+                                    <AiIcons.AiOutlineCloseCircle onClick={showSidebar}></AiIcons.AiOutlineCloseCircle>
+                                </NavIcon> */}
+
+                                {SidebarData.map((item, index) => {
+                                    return <SubMenu item={item} key={index} />
+                                })}
+                            </SidebarWrap>
+                        </SidebarNav>
+                    </Nav>
+                </div>
+
             </IconContext.Provider>
+        </div>
     )
 }
 

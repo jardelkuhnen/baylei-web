@@ -6,15 +6,15 @@ import {
 } from 'react-router-dom';
 import SideBar from '../components/sidebar/Sidebar';
 import { Category } from '../pages/Category';
-import { MenuInitial } from '../pages/MenuInitial';
+import { Home } from '../pages/Home';
 import { Products } from '../pages/Products';
-
 
 const Routes: React.FC = () => {
   return (
     <BrowserRouter>
       <>
-          <SideBar />
+          
+          <SideBar /> 
           <Switch>
             <Route path="/clientes">
               <Category />
@@ -23,7 +23,7 @@ const Routes: React.FC = () => {
               <Products />
             </Route>
             <Route path="/">
-              <MenuInitial />
+              <Home />
             </Route>
           </Switch>
         </>
