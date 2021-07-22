@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import {
   BrowserRouter,
   Route,
@@ -9,12 +10,17 @@ import { Category } from '../pages/Category';
 import { Home } from '../pages/Home';
 import { Products } from '../pages/Products';
 
+const Pagina = styled.div`
+  width: 100%;
+  margin-left: 400px;
+  display: flex;
+`;
+
 const Routes: React.FC = () => {
   return (
     <BrowserRouter>
-      <>
-          
-          <SideBar /> 
+        <SideBar />
+        <Pagina>
           <Switch>
             <Route path="/clientes">
               <Category />
@@ -26,7 +32,7 @@ const Routes: React.FC = () => {
               <Home />
             </Route>
           </Switch>
-        </>
+        </Pagina>
     </BrowserRouter>
   );
 }

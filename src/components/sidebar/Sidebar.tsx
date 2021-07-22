@@ -6,6 +6,7 @@ import SidebarData from './SidebarData';
 import SubMenu from './SubMenu';
 import { IconContext } from 'react-icons/lib';
 import Logo from './Logo';
+import { Avatar, makeStyles } from '@material-ui/core';
 
 const Nav = styled.div`
     background: #ffffff;
@@ -16,18 +17,28 @@ const Nav = styled.div`
 `;
 
 const NavIcon = styled(Link)`
-    margin-left: 2rem;
+    margin-left: 10%;
     color: #9199a8;
-    font-size: 2rem;
-    height: 100px;
+    margin-top: 2px;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    text-decoration: none;
+`;
+
+const Header = styled.div`
+    background: #fff;
+    
+    height: 130px;
+    width: 100%;
+    
+    align-items: center;
+    padding-right: 30px;
+
+    display: flex;
+    justify-content: flex-end;
 `;
 
 const SidebarNav = styled.nav<SidebarProp>`
-    background: #ffffff;
+    background: #fbfbfb;
     border-radius: 50px;
     width: 400px;
     height: 100vh;
@@ -42,7 +53,7 @@ const SidebarNav = styled.nav<SidebarProp>`
 
 const SidebarWrap = styled.div`
     width: 100%;
-    padding-top: 150px;
+    padding-top: 30px;
 `;
 
 const Aside = styled.aside`
@@ -58,12 +69,31 @@ const Aside = styled.aside`
     padding: 80px;   
 `;
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
+        '& > *': {
+            margin: theme.spacing(1),
+        },
+    },
+    small: {
+        width: theme.spacing(3),
+        height: theme.spacing(3),
+    },
+    large: {
+        width: theme.spacing(8),
+        height: theme.spacing(8),
+    },
+}));
+
 
 interface SidebarProp {
     sidebar: boolean;
 }
 
 const SideBar = () => {
+
+    const classes = useStyles();
 
     const [sidebar, setStidebar] = useState(false);
 
@@ -74,28 +104,29 @@ const SideBar = () => {
     return (
         <div>
             <IconContext.Provider value={{ color: '#9199a8' }}>
-                <div>
+                <Nav>
+                    <Header>
+                        <div>
+                            <Avatar alt="Remy Sharp" src="/static/avatar/person.png" className={classes.large} />
+                            <h4>Olá Adriel</h4>
+                        </div>
+                    </Header>
 
-                    <Nav>
-                        <NavIcon to="#">
-                            <Logo onClick={showSidebar}></Logo>
-                        </NavIcon>
-                        
-                        <SidebarNav sidebar={true}>
-                            <Aside></Aside>
-                            <SidebarWrap onClick={showSidebar}>
-                                {/* <NavIcon to="#">
-                                    <AiIcons.AiOutlineCloseCircle onClick={showSidebar}></AiIcons.AiOutlineCloseCircle>
-                                </NavIcon> */}
+                    <SidebarNav sidebar={true}>
 
-                                {SidebarData.map((item, index) => {
-                                    return <SubMenu item={item} key={index} />
-                                })}
-                            </SidebarWrap>
-                        </SidebarNav>
-                    </Nav>
-                </div>
+                        <Aside></Aside>
 
+                        <SidebarWrap onClick={showSidebar}>
+                            <NavIcon to="#">
+                                <Logo onClick={showSidebar}></Logo>
+                            </NavIcon>
+
+                            {SidebarData.map((item, index) => {
+                                return <SubMenu item={item} key={index} />
+                            })}
+                        </SidebarWrap>
+                    </SidebarNav>
+                </Nav>
             </IconContext.Provider>
         </div>
     )

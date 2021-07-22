@@ -5,7 +5,7 @@ const H3 = styled.h3`
 `;
 
 const LogoImg = styled.img`
-  width: 100px;
+  width: 180px;
   height: 100px;
 `;
 
@@ -17,7 +17,6 @@ const Logo = (props: any) => (
         src="/static/bailey.svg"
         {...props}
       />
-      {/* <H3 {...props}>Baylei</H3> */}
     </>
   );
   
