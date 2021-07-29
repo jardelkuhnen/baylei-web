@@ -9,6 +9,7 @@ import SideBar from '../components/sidebar/Sidebar';
 import { Category } from '../pages/Category';
 import { Home } from '../pages/Home';
 import { Products } from '../pages/Products';
+import { Client } from '../pages/Client';
 
 const Pagina = styled.div`
   width: 100%;
@@ -22,11 +23,20 @@ const Routes: React.FC = () => {
         <SideBar />
         <Pagina>
           <Switch>
-            <Route path="/clientes">
+            <Route path="/client">
+              <Client />
+            </Route>
+            <Route path="/product">
+              <Products />
+            </Route>
+            <Route path="/plan">
               <Category />
             </Route>
-            <Route path="/produtos">
-              <Products />
+            <Route path="/order">
+              <Category />
+            </Route>
+            <Route path="/seller">
+              <Category />
             </Route>
             <Route path="/">
               <Home />

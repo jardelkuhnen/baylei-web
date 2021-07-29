@@ -8,22 +8,33 @@ export const SidebarData = [
 
     {
         title: 'Home',
-        path: '/home',
+        path: '/',
         icon: <AiIcons.AiFillHome />,
-        iconClosed: <RiIcons.RiArrowDownFill />,
-        iconOpened: <RiIcons.RiArrowUpFill />
     },
     {
-        title: 'Clientes',
-        path: '/clientes',
+        title: 'Venda',
+        path: '/order',
         icon: <FaIcons.FaCartPlus />
     },
     {
-        title: 'Produtos',
+        title: 'Produto',
         path: '/produtos',
-        icon: <AiIcons.AiFillHome />,
-        iconClosed: <RiIcons.RiArrowDownFill />,
-        iconOpened: <RiIcons.RiArrowUpFill />,
+        icon: <AiIcons.AiFillAppstore />,
+    },
+    {
+        title: 'Plano',
+        path: '/plan',
+        icon: <AiIcons.AiFillAccountBook />,
+    },
+    {
+        title: 'Cliente',
+        path: '/client',
+        icon: <AiIcons.AiOutlineUserAdd />
+    },
+    {
+        title: 'Vendedor',
+        path: '/seller',
+        icon: <AiIcons.AiOutlineUserAdd />,
     },
     
 ];
