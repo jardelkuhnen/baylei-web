@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Grid, } from '@material-ui/core';
 import Controls from "../controls/Controls";
 import { useForm, Form } from '../useForm';
-import * as employeeService from "../../services/employeeService.js";
 import * as clienteService from "../../services/clienteService";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -71,8 +70,7 @@ export default function ClientForm() {
             draggable: true,
             progress: undefined,
         });
-
-        clienteService.getClients();
+        
         if (validate()) {
 
             const client = {

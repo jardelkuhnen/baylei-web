@@ -9,7 +9,7 @@ import SideBar from '../components/sidebar/Sidebar';
 import { Category } from '../pages/Category';
 import { Home } from '../pages/Home';
 import { Products } from '../pages/Products';
-import { Client } from '../pages/Client';
+import ClientPage from '../pages/ClientPage';
 
 const Pagina = styled.div`
   width: 100%;
@@ -24,7 +24,7 @@ const Routes: React.FC = () => {
         <Pagina>
           <Switch>
             <Route path="/client">
-              <Client />
+              <ClientPage />
             </Route>
             <Route path="/product">
               <Products />

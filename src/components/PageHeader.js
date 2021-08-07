@@ -35,7 +35,7 @@ export default function PageHeader(props) {
                 </Card>
                 <div className={classes.pageTitle}>
                     <Typography
-                        variant="h6"
+                        variant="h5"
                         component="div">
                         {title}</Typography>
                     <Typography
