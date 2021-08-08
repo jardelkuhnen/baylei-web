@@ -1,15 +1,17 @@
 import { DataGrid } from '@material-ui/data-grid';
-import { Client } from "../../entities/Client";
+import { Product } from "../../entities/Product";
 import ButtonNovo from '../../styles/ButtonNovo';
 import styled from "styled-components";
 import ButtonEdit from '../../styles/ButtonEdit';
 import ButtonDelete from '../../styles/ButtonDelete';
 
 import { useHistory } from "react-router-dom";
+import Container from '../../styles/Container';
 
 interface Props {
-    list: Client[];
+    list: Product[];
 }
+
 
 const Header = styled.div`
     
@@ -22,12 +24,12 @@ const Header = styled.div`
     justify-content: flex-end;
 `;
 
-const ClientListagem: React.FC<Props> = ({ list }) => {
-    
+const ProductListagem: React.FC<Props> = ({ list }) => {
+
     let history = useHistory()
 
     function goForm(): any {
-        history.push('/client/')
+        // history.push('/products/')
     }
     let userIdFocus;
     return (
@@ -52,6 +54,7 @@ const ClientListagem: React.FC<Props> = ({ list }) => {
                     onSelectionModelChange={(e) => { userIdFocus = e }}
                 />
             </div>
+
         </>
 
 
@@ -64,41 +67,29 @@ const ClientListagem: React.FC<Props> = ({ list }) => {
 const columns = [
     // { field: 'id', headerName: 'ID', width: 250 },
     {
-        field: 'fullName',
+        field: 'name',
         headerName: 'Nome',
-        description: 'This column has a value getter and is not sortable.',
-        sortable: true,
-        width: 400,
-        valueGetter: (params: any) =>
-            `${params.getValue(params.id, 'name') || ''} ${params.getValue(params.id, 'lastName') || ''}`,
-    },
-    {
-        field: 'phone',
-        headerName: 'Telefone',
         width: 200,
         sortable: true,
         editable: false,
     },
     {
-        field: 'email',
-        headerName: 'Email',
-        width: 250,
+        field: 'description',
+        headerName: 'Descrição',
+        width: 200,
         sortable: true,
         editable: false,
     },
-    // {
-    //     field: 'actions',
-    //     headerName: 'Ações',
-    //     width: 100,
-    //     sortable: false,
-    //     editable: false,
-
-    // },
-
-
+    {
+        field: 'price',
+        headerName: 'Preço',
+        width: 200,
+        sortable: true,
+        editable: false,
+    }
 ];
 
 
 
 
-export default ClientListagem;
+export default ProductListagem;

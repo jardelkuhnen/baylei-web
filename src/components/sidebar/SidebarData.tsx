@@ -18,7 +18,7 @@ export const SidebarData = [
     },
     {
         title: 'Produto',
-        path: '/produtos',
+        path: '/product',
         icon: <AiIcons.AiFillAppstore />,
     },
     {

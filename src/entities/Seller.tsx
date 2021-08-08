@@ -1,9 +1,8 @@
 
-export type Client = {
+export type Seller = {
     id?: string;
     name: string;
     lastname: string;
-    email: string;
     age: number;
     phone: string;
     dateCreated: string;

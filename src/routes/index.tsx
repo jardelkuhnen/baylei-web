@@ -6,10 +6,11 @@ import {
   Switch
 } from 'react-router-dom';
 import SideBar from '../components/sidebar/Sidebar';
-import { Category } from '../pages/Category';
-import { Home } from '../pages/Home';
-import { Products } from '../pages/Products';
-import ClientPage from '../pages/ClientPage';
+import { Home } from '../pages/home/Home';
+import ClientPage from '../pages/cliente/ClientPage';
+import SellerPage from '../pages/seller/SellerPage';
+import ProductPage from '../pages/product/ProductPage';
+import PlanPage from '../pages/plan/PlanPage';
 
 const Pagina = styled.div`
   width: 100%;
@@ -27,16 +28,16 @@ const Routes: React.FC = () => {
               <ClientPage />
             </Route>
             <Route path="/product">
-              <Products />
+              <ProductPage />
             </Route>
             <Route path="/plan">
-              <Category />
+              <PlanPage />
             </Route>
             <Route path="/order">
-              <Category />
+              <PlanPage />
             </Route>
             <Route path="/seller">
-              <Category />
+              <SellerPage />
             </Route>
             <Route path="/">
               <Home />

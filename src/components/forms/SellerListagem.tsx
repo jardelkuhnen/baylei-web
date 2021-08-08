@@ -1,14 +1,14 @@
 import { DataGrid } from '@material-ui/data-grid';
-import { Client } from "../../entities/Client";
 import ButtonNovo from '../../styles/ButtonNovo';
 import styled from "styled-components";
 import ButtonEdit from '../../styles/ButtonEdit';
 import ButtonDelete from '../../styles/ButtonDelete';
 
 import { useHistory } from "react-router-dom";
+import { Seller } from '../../entities/Seller';
 
 interface Props {
-    list: Client[];
+    list: Seller[];
 }
 
 const Header = styled.div`
@@ -22,12 +22,11 @@ const Header = styled.div`
     justify-content: flex-end;
 `;
 
-const ClientListagem: React.FC<Props> = ({ list }) => {
+const SellerListagem: React.FC<Props> = ({ list }) => {
     
     let history = useHistory()
 
     function goForm(): any {
-        history.push('/client/')
     }
     let userIdFocus;
     return (
@@ -53,8 +52,6 @@ const ClientListagem: React.FC<Props> = ({ list }) => {
                 />
             </div>
         </>
-
-
 
 
     );
@@ -86,14 +83,6 @@ const columns = [
         sortable: true,
         editable: false,
     },
-    // {
-    //     field: 'actions',
-    //     headerName: 'Ações',
-    //     width: 100,
-    //     sortable: false,
-    //     editable: false,
-
-    // },
 
 
 ];
@@ -101,4 +90,4 @@ const columns = [
 
 
 
-export default ClientListagem;
+export default SellerListagem;

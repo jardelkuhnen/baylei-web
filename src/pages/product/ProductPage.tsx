@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import Container from '../styles/Container'
-import { Paper, makeStyles } from '@material-ui/core';
-import ClientForm from '../components/forms/ClientForm';
-import PageHeader from '../components/PageHeader';
-import * as AiIcons from 'react-icons/ai';
+import { makeStyles } from '@material-ui/core';
 import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
-import ClientListagem from '../components/forms/ClientListagem';
-import api from '../services/api';
-import { Client } from '../entities/Client';
-import { useLoading } from '../contexts/LoadingContext';
+import LocalMallIcon from '@material-ui/icons/LocalMall';
+import api from '../../services/api';
+import Container from '../../styles/Container';
+import PageHeader from '../../components/PageHeader';
+import { Product } from '../../entities/Product';
+import ProductListagem from '../../components/forms/ProductListagem';
 
 const useStyles = makeStyles(theme => ({
     pageContent: {
@@ -17,20 +15,19 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-const ClientPage: React.FC = () => {
-
+const ProductPage = () => {
     const classes = useStyles();
 
     const [loading, setLoading] = useState<boolean>(true);
 
-    const [clients, setClients] = useState<Client[]>([]);
+    const [products, setProducts] = useState<Product[]>([]);
 
 
     useEffect(() => {
-        async function getClients(): Promise<void> {
-            await api.get(`/clients/`)
+        async function getProducts(): Promise<void> {
+            await api.get(`/products/`)
                 .then(response => {
-                    setClients(response.data)
+                    setProducts(response.data)
                     setLoading(false)
                 })
                 .catch(error => {
@@ -38,21 +35,22 @@ const ClientPage: React.FC = () => {
                 });
         }
 
-        getClients();
+        getProducts();
     }, []);
 
+    console.log(products)
 
     return (
         <>
             {loading ? <h1>Carregando!</h1> : (
                 <Container>
                     <PageHeader
-                        title="Clientes"
+                        title="Produtos"
                         subTitle=""
-                        icon={<PeopleOutlineTwoToneIcon fontSize="large" />}
+                        icon={<LocalMallIcon fontSize="large" />}
                     />
 
-                    <ClientListagem list={clients} />
+                    <ProductListagem list={products} />
 
                     {/* <Paper className={classes.pageContent}>
                 
@@ -67,4 +65,4 @@ const ClientPage: React.FC = () => {
     )
 }
 
-export default ClientPage;
+export default ProductPage
