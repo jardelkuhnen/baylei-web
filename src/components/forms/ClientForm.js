@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { Grid, } from '@material-ui/core';
 import Controls from "../controls/Controls";
 import { useForm, Form } from '../useForm';
-import * as employeeService from "../../services/employeeService.js";
-
+import * as clienteService from "../../services/clienteService";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {Toaster} from '../../styles/Toaster';
 
 const genderItems = [
     { id: 'male', title: 'Masculino' },
@@ -15,7 +17,7 @@ const initialFValues = {
     id: 0,
     name: '',
     lastname: '',
-    age: 0,
+    age: '',
     email: '',
     phone: '',
     city: '',
@@ -37,6 +39,8 @@ export default function ClientForm() {
             temp.email = (/$^|.+@.+..+/).test(fieldValues.email) ? "" : "Email inválido.."
         if ('phone' in fieldValues)
             temp.phone = fieldValues.phone.length > 9 ? "" : "Telefone inválido."
+
+
         setErrors({
             ...temp
         })
@@ -56,58 +60,112 @@ export default function ClientForm() {
 
     const handleSubmit = e => {
         e.preventDefault()
-        if (validate()){
-            employeeService.insertEmployee(values)
+
+        toast.success('🦄 Wow so easy!', {
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+        
+        if (validate()) {
+
+            const client = {
+                name: values.name,
+                lastname: values.lastname,
+                email: values.email,
+                age: values.age,
+                phone: values.phone
+            };
+
+            clienteService.postClient(client)
             resetForm()
         }
     }
 
+
     return (
-        <Form onSubmit={handleSubmit}>
-            <Grid container spacing={10}>
-                <Grid item xs={8}>
-                    <Controls.Input
-                        name="name"
-                        label="Nome"
-                        value={values.name}
-                        onChange={handleInputChange}
-                        error={errors.name}
-                    />
-                    <Controls.Input
-                        name="lastname"
-                        label="Sobrenome"
-                        value={values.lastname}
-                        onChange={handleInputChange}
-                        error={errors.lastname}
-                    />
-                    
-                    <Controls.RadioGroup
+        <>
+            <Toaster>
+                <ToastContainer
+                    position="bottom-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                />
+            </Toaster>
+
+
+
+            {/* Same as */}
+            <ToastContainer />
+            <Form onSubmit={handleSubmit}>
+
+
+                <Grid container spacing={10}>
+                    <Grid item xs={6}>
+                        <Controls.Input
+                            name="name"
+                            label="Nome"
+                            value={values.name}
+                            onChange={handleInputChange}
+                            error={errors.name}
+                        />
+                        <Controls.Input
+                            name="lastname"
+                            label="Sobrenome"
+                            value={values.lastname}
+                            onChange={handleInputChange}
+                            error={errors.lastname}
+                        />
+
+                        {/* <Controls.RadioGroup
                         name="gender"
                         label="Gênero"
                         value={values.gender}
                         onChange={handleInputChange}
                         items={genderItems}
-                    />
-                    
+                    /> */}
 
-                </Grid>
-                <Grid item xs={6}>
-                    
-                    <Controls.Input
-                        label="Telefone"
-                        name="phone"
-                        value={values.phone}
-                        onChange={handleInputChange}
-                        error={errors.phone}
-                    />
-                    <Controls.Input
-                        name="email"
-                        label="Email"
-                        value={values.email}
-                        onChange={handleInputChange}
-                        error={errors.email}
-                    />
-                    {/* <Controls.Select
+                        <Controls.Input
+                            name="email"
+                            label="Email"
+                            value={values.email}
+                            onChange={handleInputChange}
+                            error={errors.email}
+                        />
+
+
+
+                    </Grid>
+                    <Grid item xs={6}>
+
+                        <Controls.Input
+                            name="age"
+                            label="Idade"
+                            type="number"
+                            value={values.age}
+                            onChange={handleInputChange}
+                            error={errors.age}
+                        />
+
+                        <Controls.Input
+                            label="Telefone"
+                            name="phone"
+                            value={values.phone}
+                            onChange={handleInputChange}
+                            error={errors.phone}
+                        />
+
+                        {/* <Controls.Select
                         name="departmentId"
                         label="Department"
                         value={values.departmentId}
@@ -115,31 +173,33 @@ export default function ClientForm() {
                         options={employeeService.getDepartmentCollection()}
                         error={errors.departmentId}
                     /> */}
-                    {/* <Controls.Checkbox
+                        {/* <Controls.Checkbox
                         name="isPermanent"
                         label="Permanent Employee"
                         value={values.isPermanent}
                         onChange={handleInputChange}
                     /> */}
-                    {/* <Controls.DatePicker
+                        {/* <Controls.DatePicker
                         name="hireDate"
                         label="Hire Date"
                         value={values.hireDate}
                         onChange={handleInputChange}
                     /> */}
 
+                        <div>
+                            <Controls.Button
+                                type="submit"
+                                text="Salvar" />
+                            <Controls.Button
+                                text="Limpar"
+                                color="default"
+                                onClick={resetForm} />
+                        </div>
 
-                    <div>
-                        <Controls.Button
-                            type="submit"
-                            text="Salvar" />
-                        <Controls.Button
-                            text="Limpar"
-                            color="default"
-                            onClick={resetForm} />
-                    </div>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </Form>
+            </Form>
+        </>
+
     )
 }
