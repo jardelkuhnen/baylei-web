@@ -1,12 +1,11 @@
 import { DataGrid } from '@material-ui/data-grid';
-import { Product } from "../../entities/Product";
-import ButtonNovo from '../../styles/ButtonNovo';
+import { Product } from "../../../entities/Product";
+import ButtonNovo from '../../../styles/ButtonNovo';
 import styled from "styled-components";
-import ButtonEdit from '../../styles/ButtonEdit';
-import ButtonDelete from '../../styles/ButtonDelete';
+import ButtonEdit from '../../../styles/ButtonEdit';
+import ButtonDelete from '../../../styles/ButtonDelete';
 
 import { useHistory } from "react-router-dom";
-import Container from '../../styles/Container';
 
 interface Props {
     list: Product[];
@@ -25,19 +24,23 @@ const Header = styled.div`
 `;
 
 const ProductListagem: React.FC<Props> = ({ list }) => {
-
     let history = useHistory()
+    const handleNewProduct = () => {
+        history.push("/new-product"); 
+    };
 
-    function goForm(): any {
-        // history.push('/products/')
+    const handleEditProduct = (id: string) => {
+        history.push("/edit-product/" + id); 
     }
-    let userIdFocus;
+
+
+    let userIdFocus: string | null = null;
     return (
         <>
 
             <Header>
-                <ButtonNovo onClick={goForm()}>Novo</ButtonNovo>
-                <ButtonEdit>Editar</ButtonEdit>
+                <ButtonNovo onClick={handleNewProduct}>Novo</ButtonNovo>
+                <ButtonEdit onClick={() => userIdFocus && handleEditProduct(userIdFocus)}>Editar</ButtonEdit>
                 <ButtonDelete>Excluir</ButtonDelete>
             </Header>
 
@@ -51,7 +54,7 @@ const ProductListagem: React.FC<Props> = ({ list }) => {
                     disableSelectionOnClick
                     autoHeight={true}
                     onRowClick={(e) => { console.log(e) }}
-                    onSelectionModelChange={(e) => { userIdFocus = e }}
+                    onSelectionModelChange={(e) => { userIdFocus = e[0] ? e[0].toString() : null }}
                 />
             </div>
 

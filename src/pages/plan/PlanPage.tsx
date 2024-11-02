@@ -7,12 +7,12 @@ import PageHeader from '../../components/PageHeader';
 import { Plan } from '../../entities/Plan';
 import PlanListagem from '../../components/forms/PlanListagem';
 
-const useStyles = makeStyles(theme => ({
-    pageContent: {
-        margin: theme.spacing(5),
-        padding: theme.spacing(3)
-    }
-}))
+// const useStyles = makeStyles(theme => ({
+//     pageContent: {
+//         margin: theme.spacing(5),
+//         padding: theme.spacing(3)
+//     }
+// }))
 
 const PlanPage = () => {
 

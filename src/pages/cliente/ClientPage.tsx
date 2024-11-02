@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Container from '../../styles/Container'
-import { Paper, makeStyles } from '@material-ui/core';
-import ClientForm from '../../components/forms/ClientForm';
+import { makeStyles } from '@material-ui/core';
 import PageHeader from '../../components/PageHeader';
-import * as AiIcons from 'react-icons/ai';
 import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
 import ClientListagem from '../../components/forms/ClientListagem';
 import api from '../../services/api';
 import { Client } from '../../entities/Client';
-import { useLoading } from '../../contexts/LoadingContext';
 
 const useStyles = makeStyles(theme => ({
     pageContent: {

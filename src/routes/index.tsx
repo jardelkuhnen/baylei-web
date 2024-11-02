@@ -11,6 +11,8 @@ import ClientPage from '../pages/cliente/ClientPage';
 import SellerPage from '../pages/seller/SellerPage';
 import ProductPage from '../pages/product/ProductPage';
 import PlanPage from '../pages/plan/PlanPage';
+import CreateProductForm from '../pages/product/ProductNew';
+import EditProductForm from '../pages/product/ProductEdit';
 
 const Pagina = styled.div`
   width: 100%;
@@ -30,6 +32,8 @@ const Routes: React.FC = () => {
             <Route path="/product">
               <ProductPage />
             </Route>
+            <Route path="/new-product" component={CreateProductForm} />
+            <Route path="/edit-product/:id" component={EditProductForm} />
             <Route path="/plan">
               <PlanPage />
             </Route>

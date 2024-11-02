@@ -54,9 +54,6 @@ const ClientListagem: React.FC<Props> = ({ list }) => {
             </div>
         </>
 
-
-
-
     );
 
 }

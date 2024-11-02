@@ -27,7 +27,7 @@ const PlanListagem: React.FC<Props> = ({ list }) => {
     let history = useHistory()
 
     function goForm(): any {
-        // history.push('/products/')
+        history.push('/plan/new')
     }
     let userIdFocus;
     return (

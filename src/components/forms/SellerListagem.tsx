@@ -27,6 +27,7 @@ const SellerListagem: React.FC<Props> = ({ list }) => {
     let history = useHistory()
 
     function goForm(): any {
+        history.push('/seller/new')
     }
     let userIdFocus;
     return (
