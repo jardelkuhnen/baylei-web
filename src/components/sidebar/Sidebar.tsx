@@ -39,7 +39,7 @@ const Header = styled.div`
 const SidebarNav = styled.nav<SidebarProp>`
     background: #fbfbfb;
     border-radius: 50px;
-    width: 400px;
+    width: 300px;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -65,7 +65,7 @@ const Aside = styled.aside`
     flex-direction: column;
     justify-content: center;
 
-    padding: 80px;   
+    padding: 20px;   
 `;
 
 const useStyles = makeStyles((theme) => ({

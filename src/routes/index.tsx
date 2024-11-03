@@ -16,7 +16,7 @@ import EditProductForm from '../pages/product/ProductEdit';
 
 const Pagina = styled.div`
   width: 100%;
-  margin-left: 400px;
+  margin-left: 315px;
   display: flex;
 `;
 
