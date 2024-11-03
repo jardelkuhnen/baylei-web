@@ -35,15 +35,15 @@ const Routes: React.FC = () => {
             </Route>
             <Route path="/new-product" component={CreateProductForm} />
             <Route path="/edit-product/:id" component={EditProductForm} />
-            <Route path="/plan">
+            {/* <Route path="/plan">
               <PlanPage />
-            </Route>
+            </Route> */}
             <Route path="/order">
               <PlanPage />
             </Route>
-            <Route path="/seller">
+            {/* <Route path="/seller">
               <SellerPage />
-            </Route>
+            </Route> */}
             <Route path="/">
               <Home />
             </Route>

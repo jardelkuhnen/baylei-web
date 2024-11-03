@@ -6,6 +6,7 @@ import ButtonEdit from '../../../styles/ButtonEdit';
 import ButtonDelete from '../../../styles/ButtonDelete';
 
 import { useHistory } from "react-router-dom";
+import ProductDataGrid from './productDataGrid';
 
 interface Props {
     list: Product[];
@@ -34,19 +35,19 @@ const ProductListagem: React.FC<Props> = ({ list }) => {
     }
 
 
-    let userIdFocus: string | null = null;
+    // let userIdFocus: string | null = null;
     return (
         <>
 
             <Header>
                 <ButtonNovo onClick={handleNewProduct}>Novo</ButtonNovo>
-                <ButtonEdit onClick={() => userIdFocus && handleEditProduct(userIdFocus)}>Editar</ButtonEdit>
-                <ButtonDelete>Excluir</ButtonDelete>
+                {/* <ButtonEdit onClick={() => userIdFocus && handleEditProduct(userIdFocus)}>Editar</ButtonEdit> //only used quen DataGrid is used 
+                <ButtonDelete>Excluir</ButtonDelete> */}
             </Header>
 
 
             <div style={{ height: 400, width: '100%', fontSize: '15px' }}>
-                <DataGrid
+                {/* <DataGrid
                     rows={list}
                     columns={columns}
                     pageSize={10}
@@ -55,7 +56,8 @@ const ProductListagem: React.FC<Props> = ({ list }) => {
                     autoHeight={true}
                     onRowClick={(e) => { console.log(e) }}
                     onSelectionModelChange={(e) => { userIdFocus = e[0] ? e[0].toString() : null }}
-                />
+                /> */}
+                <ProductDataGrid list={list} />
             </div>
 
         </>
@@ -86,6 +88,13 @@ const columns = [
     {
         field: 'price',
         headerName: 'Preço',
+        width: 200,
+        sortable: true,
+        editable: false,
+    },
+    {
+        field: 'quantity',
+        headerName: 'Quantidade',
         width: 200,
         sortable: true,
         editable: false,

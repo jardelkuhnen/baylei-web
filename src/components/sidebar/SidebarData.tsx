@@ -20,21 +20,21 @@ export const SidebarData = [
         path: '/product',
         icon: <AiIcons.AiFillAppstore />,
     },
-    {
-        title: 'Plano',
-        path: '/plan',
-        icon: <AiIcons.AiFillAccountBook />,
-    },
-    {
-        title: 'Cliente',
-        path: '/client',
-        icon: <AiIcons.AiOutlineUserAdd />
-    },
-    {
-        title: 'Vendedor',
-        path: '/seller',
-        icon: <AiIcons.AiOutlineUserAdd />,
-    },
+    // {
+    //     title: 'Plano',
+    //     path: '/plan',
+    //     icon: <AiIcons.AiFillAccountBook />,
+    // },
+    // {
+    //     title: 'Cliente',
+    //     path: '/client',
+    //     icon: <AiIcons.AiOutlineUserAdd />
+    // },
+    // {
+    //     title: 'Vendedor',
+    //     path: '/seller',
+    //     icon: <AiIcons.AiOutlineUserAdd />,
+    // },
     
 ];
 

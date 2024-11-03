@@ -10,7 +10,7 @@ export default createGlobalStyle`
     height: 100%;
     /* width */
     ::-webkit-scrollbar {
-      width: 100px;
+      width: 10px;
       height: 10px;
     }
     /* Track */

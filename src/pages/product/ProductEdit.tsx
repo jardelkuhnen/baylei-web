@@ -46,32 +46,24 @@ const EditProductForm: React.FC = () => {
         // Fetch product data from an API or data source using the ID
         // Example fetch logic:
         async function fetchProduct() {
-        try {
+          try {
 
-            api.get(`/products/${id}`).then((r: { data: Product; status: number; }) => {
-                if (r.status === 200) { 
-                    setFormData({
-                        id: r.data.id || '',
-                        name: r.data.name,
-                        description: r.data.description,
-                        price: r.data.price,
-                        quantity: 0,
-                    });
-                }
-        
-            })
-            // // Replace with actual API call
-            // const response = await fetch(`/api/products/${id}`);
-            // const product = await response.json();
-            // setFormData({
-            // name: product.name,
-            // description: product.description,
-            // price: product.price,
-            // quantity: product.quantity
-            // });
-        } catch (error) {
-            console.error('Error fetching product:', error);
-        }
+              api.get(`/products/${id}`).then((r: { data: Product; status: number; }) => {
+                  if (r.status === 200) { 
+                      setFormData({
+                          id: r.data.id || '',
+                          name: r.data.name,
+                          description: r.data.description,
+                          price: r.data.price,
+                          quantity: r.data.quantity,
+                      });
+                  }
+          
+              })
+              
+          } catch (error) {
+              console.error('Error fetching product:', error);
+          }
         }
 
         fetchProduct();
