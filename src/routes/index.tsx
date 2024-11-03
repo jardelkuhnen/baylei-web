@@ -15,8 +15,9 @@ import CreateProductForm from '../pages/product/ProductNew';
 import EditProductForm from '../pages/product/ProductEdit';
 
 const Pagina = styled.div`
-  width: 100%;
+  // width: 85%;
   margin-left: 315px;
+  // margin-right: 1px;
   display: flex;
 `;
 

@@ -34,6 +34,7 @@ const EditProductForm: React.FC = () => {
     };
 
     const [formData, setFormData] = useState({
+        id: '',
         name: '',
         description: '',
         price: 0,
@@ -50,6 +51,7 @@ const EditProductForm: React.FC = () => {
             api.get(`/products/${id}`).then((r: { data: Product; status: number; }) => {
                 if (r.status === 200) { 
                     setFormData({
+                        id: r.data.id || '',
                         name: r.data.name,
                         description: r.data.description,
                         price: r.data.price,
